@@ -1,5 +1,5 @@
 package br.edu.fatec;
-
+//
 import java.util.Scanner;
 
 public class Calculadora {
@@ -17,13 +17,13 @@ public class Calculadora {
 		System.out.println("Calculadora para Operacoes aritmeticas simples, \npara fazer as operacoes com apenas dois numeros");
 
 		do {
-			System.out.print("\nDigite a opção que você deseja: "
+			System.out.print("\nDigite a opï¿½ï¿½o que vocï¿½ deseja: "
 									+"\n\t1-SOMA"
 									+"\n\t2-SUBTRACAO"
 									+"\n\t3-MULTIPLICACAO"
 									+"\n\t4-DIVISAO"
 									+"\n\t5-SAIR"
-									+"\n\nDigite a opção: " );
+									+"\n\nDigite a opï¿½ï¿½o: " );
 				
 			opcao = leitor.nextInt();
 
@@ -59,7 +59,7 @@ public class Calculadora {
 				break;
 
 			default:
-				System.out.println("\nOpção NÃO VÁLIDA!!!, por favor insira um numero de 1 a 5\n");
+				System.out.println("\nOpï¿½ï¿½o Nï¿½O Vï¿½LIDA!!!, por favor insira um numero de 1 a 5\n");
 				break;
 			}
 
