@@ -9,32 +9,32 @@ public class Agenda {
 	private List<Pessoa> pessoas = new ArrayList<>();
 
 	public void cadastrarAluno() {
-		String nome = Inputs.pegaNome();
+		String nome = new Inputs().pegaNome();
 		if (GerPessoas.descobreIndex(pessoas, nome) >= 0) {
-			System.out.println("Cadastro já existent!!!e\n");
+			System.out.println("Cadastro ja existent!!!e\n");
 			GerPessoas.atualizarCadastro(pessoas, nome);
 			return;
 		}
-		Pessoa p = new Aluno(nome, Inputs.pegaTelefone(), Inputs.pegaEmail(), Inputs.pegaRegistro());
+		Pessoa p = new Aluno(nome, new Inputs().pegaTelefone(), new Inputs().pegaEmail(), new Inputs().pegaRegistro());
 		pessoas.add(p);
 
 	}
 
 	public void cadastrarProfessor() {
-		String nome = Inputs.pegaNome();
+		String nome = new Inputs().pegaNome();
 		if (GerPessoas.descobreIndex(pessoas, nome) >= 0) {
-			System.out.println("Cadastro já existent!!!e\n");
+			System.out.println("Cadastro jï¿½ existent!!!e\n");
 			GerPessoas.atualizarCadastro(pessoas, nome);
 			return;
 		}
-		Pessoa p = new Professor(Inputs.pegaNome(), Inputs.pegaTelefone(), Inputs.pegaEmail(), Inputs.pegaRegistro(),
-				Inputs.pegaQuantidadeHoraAula());
+		Pessoa p = new Professor(new Inputs().pegaNome(), new Inputs().pegaTelefone(), new Inputs().pegaEmail(), new Inputs().pegaRegistro(),
+				new Inputs().pegaQuantidadeHoraAula());
 		pessoas.add(p);
 
 	}
 
 	public void excluir() {
-		String nome = Inputs.pegaNome();
+		String nome = new Inputs().pegaNome();
 		if (GerPessoas.descobreIndex(pessoas, nome) == -1) {
 			System.out.println("Cadastros nao existente");
 			return;
@@ -45,7 +45,7 @@ public class Agenda {
 
 	public void editar() {
 
-		String nome = Inputs.pegaNome();
+		String nome = new Inputs().pegaNome();
 
 		if (GerPessoas.descobreIndex(pessoas, nome) == -1) {
 			System.out.println("Aluno nao existente");
@@ -57,15 +57,15 @@ public class Agenda {
 	}
 
 	public void lerRegistos() {
-		Outputs.listarNumeroRegistro(pessoas);
+		new Outputs().listarNumeroRegistro(pessoas);
 	}
 
 	public void lerTodoscadastros() {
-		Outputs.listarTodos(pessoas);
+		new Outputs().listarTodos(pessoas);
 	}
 
 	public void lerHoraAula() {
-		Outputs.listaHoraAula(pessoas);
+		new Outputs().listaHoraAula(pessoas);
 	}
 
 	public List<Pessoa> getPessoas() {
@@ -77,11 +77,11 @@ public class Agenda {
 	}
 
 	public void salvarEmDisco() throws IOException {
-		Serializacao.salvar(this.pessoas, Inputs.pegaCaminho());
+		Serializacao.salvar(this.pessoas, new Inputs().pegaCaminho());
 	}
 
 	public void lerDisco() throws IOException, ClassNotFoundException {
-		pessoas = Serializacao.ler(Inputs.pegaCaminho() );
+		pessoas = Serializacao.ler(new Inputs().pegaCaminho());
 	}
 
 }

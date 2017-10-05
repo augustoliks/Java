@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Engine {
+public class Engine extends GerLevantamento{
 
 	BDLogin bd = new BDLogin();
 	
@@ -17,12 +17,12 @@ public class Engine {
 	
 	public void levantamentos() {
 
-		String data = Inputs.pegaData();
-		if (GerLevantamento.descobreIndex(levantamentos, data) >= 0) {
+		String data = new Inputs().pegaData();
+		if (descobreIndex(levantamentos, data) >= 0) {
 			System.out.println("Ja existe um levantamento nesta data");
-			GerLevantamento.atualizaLancamento(levantamentos, data);
+			atualizaLancamento(levantamentos, data);
 		} else {
-			levantamentos.add(new Levantamento(data, Inputs.pegaEntrada(), Inputs.pegaSaida()));
+			levantamentos.add(new Levantamento(data, new Inputs().pegaEntrada(), new Inputs().pegaSaida()));
 			System.out.println("Levantamento feito com sucesso");
 		}
 	}
@@ -36,7 +36,7 @@ public class Engine {
 			System.out.println("Data: " + levantamentos.get(k).getData());
 			System.out.println("Entrada: R$ " + levantamentos.get(k).getEntrada());
 			System.out.println("Saida: R$ " + levantamentos.get(k).getSaida() + "\n");
-			System.out.println("BALANÇO FINAL: R$" + ak + "\n");
+			System.out.println("BALANï¿½O FINAL: R$" + ak + "\n");
 		}
 	}
 
@@ -48,7 +48,7 @@ public class Engine {
 			ak -= levantamentos.get(k).getSaida();
 		}
 
-		System.out.println("BALANÇO FINAL: R$" + ak);
+		System.out.println("BALANï¿½O FINAL: R$" + ak);
 
 	}
 

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Outputs extends Agenda {
 
-	public static void listarTodos(List<Pessoa> pessoas) {
+	public void listarTodos(List<Pessoa> pessoas) {
 
 		System.out.println("Lista de Contatos de alunos");
 
@@ -23,7 +23,7 @@ public class Outputs extends Agenda {
 		}
 	}
 
-	public static void listarNumeroRegistro(List<Pessoa> pessoas) {
+	public void listarNumeroRegistro(List<Pessoa> pessoas) {
 
 		System.out.println("ALUNOS - RA: ");
 		for (Pessoa i : pessoas) {
@@ -41,7 +41,7 @@ public class Outputs extends Agenda {
 
 	}
 
-	public static void listaHoraAula(List<Pessoa> pessoas) {
+	public void listaHoraAula(List<Pessoa> pessoas) {
 
 		System.out.println("PROFESSORES: ");
 		for (Pessoa i : pessoas) {
@@ -52,7 +52,7 @@ public class Outputs extends Agenda {
 
 	}
 
-	public static void imprimiOpcoes() {
+	public void imprimiOpcoes() {
 		System.out.println("\nEscolha uma das Opcoes:\n");
 		System.out.println("1 - Adiconar Alunos: ");
 		System.out.println("2 - Adiconar Professor: ");

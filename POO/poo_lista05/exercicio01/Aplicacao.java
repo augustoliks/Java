@@ -11,9 +11,9 @@ public class Aplicacao {
 
 		do {
 
-			Outputs.imprimiOpcoes();
+			new Outputs().imprimiOpcoes();
 			
-			switch (Inputs.pegaOpcao()) {
+			switch (new Inputs().pegaOpcao()) {
 				case "1": {
 					agenda.cadastrarAluno();
 					break;
@@ -64,7 +64,7 @@ public class Aplicacao {
 	
 				default: {
 					System.out.println("Opcao invalida!!!");
-					Outputs.imprimiOpcoes();
+					new Outputs().imprimiOpcoes();
 					break;
 				}
 			}

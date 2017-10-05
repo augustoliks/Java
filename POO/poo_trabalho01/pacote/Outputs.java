@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Outputs {
 
-	public static void imprimiOpcoes() {
+	public void imprimiOpcoes() {
 		System.out.println("\nEscolha uma das Opcoes:\n");
 		System.out.println("1 - Cadastrar Produtos: ");
 		System.out.println("2 - Adicionar quantidade de Produtos: ");
@@ -19,14 +19,14 @@ public class Outputs {
 		System.out.print("Digite a opcao desejada: ");
 	}
 
-	public static String imprimiDados(List<Produto> produtos, int index) {
+	public String imprimiDados(List<Produto> produtos, int index) {
 		return "NOME: " + produtos.get(index).getNome() + "\t\tQUANTIDADE EM ESTOQUE: "
 				+ produtos.get(index).getQuantidade() + "\nDESCRICAO: " + produtos.get(index).getDescricao()
 				+ "\nTOTAL VENDIDO: " + produtos.get(index).getQtdVenda()+"\n\n";
 
 	}
 
-	public static String ImprimiRanking(List<Produto> produtos, int index) {
+	public String ImprimiRanking(List<Produto> produtos, int index) {
 		return "NOME: " + produtos.get(index).getNome() + "\t\tQUANTIDADE DE ITENS VENDIDOS: "
 				+ produtos.get(index).getQtdVenda()+"\n";
 	}

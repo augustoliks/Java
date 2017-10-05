@@ -1,6 +1,8 @@
 package exercicio01;
 
 public class Aluno extends Pessoa{
+
+	private static final long serialVersionUID = 1L;
 	private String numeroMatricula;
 	
 	@Override

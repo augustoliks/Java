@@ -1,10 +1,10 @@
-package exercicio01;
+package pacote;
 
 import java.util.List;
 
-public class GerProdutos {
+public class GerProdutos extends Inputs{
 
-	public static int descobreIndex(List<Produto> produtos, String nome) {
+	public int descobreIndex(List<Produto> produtos, String nome) {
 
 		for (int k = 0; k < produtos.size(); k++) {
 			if (produtos.get(k).getNome().equals(nome)) {
@@ -14,29 +14,37 @@ public class GerProdutos {
 		return -1;
 	}
 
-	public static void atualizaProduto(List<Produto> produtos, String nome) {
+	public void atualizaProduto(List<Produto> produtos, String nome) {
 
 		int index = descobreIndex(produtos, nome);
 
 		int saida = 0;
 		do {
 			System.out.print("Digite 1: Corrigir o nome do Produto\n" + "Digite 2: Atualizar quantidade\n"
-					+ "Digite 3: Confirmar e Sair\n");
+					+ "Digite 3: Atualizar Descricao" + "Digite 4: Confirmar e Sair\n");
 
-			switch (Inputs.pegaOpcao()) {
+			switch (pegaOpcao()) {
 			case "1": {
 				System.out.println("Digite um novo Nome para " + produtos.get(index).getNome());
-				produtos.get(index).setNome(Inputs.pegaNome());
+				produtos.get(index).setNome(pegaNome());
 				System.out.println("Produto modificado com sucesso!!!");
 				break;
 			}
 			case "2": {
-				System.out.println("Digite a quantidade certa para " + produtos.get(index).getQuantidade());
-				produtos.get(index).setQuantidade(Inputs.pegaQuantidade());
+				System.out.println("Digite a quantidade correta para: " + produtos.get(index).getNome());
+				produtos.get(index).setQuantidade(pegaQuantidade());
 				System.out.println("Quantidade modificada com sucesso!!!");
 				break;
 			}
+
 			case "3": {
+				System.out.println("Digite um nova descricao para: " + produtos.get(index).getNome());
+				produtos.get(index).setDescricao(pegaDescricao());
+				System.out.println("Quantidade modificada com sucesso!!!");
+				break;
+			}
+			
+			case "4": {
 				saida = 1;
 				break;
 			}

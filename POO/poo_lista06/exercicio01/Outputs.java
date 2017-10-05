@@ -2,7 +2,7 @@ package exercicio01;
 
 public class Outputs{
 
-	public static void imprimiOpcoes() {
+	public void imprimiOpcoes() {
 		System.out.println("\nEscolha uma das Opcoes:\n");
 		System.out.println("1 - Cadastrar Produtos: ");
 		System.out.println("2 - Adicionar quantidade de Produtos: ");

@@ -1,13 +1,14 @@
 package br.edu.fatec;
 
 import java.util.Scanner;
-import java.util.Vector;
 
 public class Exercicio02 {
 
+	private static Scanner scan;
+
 	public static void main(String[] args) {
 
-		Scanner scan = new Scanner(System.in);
+		scan = new Scanner(System.in);
 
 		char matriz[][] = new char[20][20];
 		int x, y, n;

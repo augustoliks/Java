@@ -2,6 +2,7 @@ package exercicio01;
 
 public class Professor extends Pessoa {
 
+	private static final long serialVersionUID = 1L;
 	private String numeroRegistro;
 	private String quantidadeHoraAula;
 	

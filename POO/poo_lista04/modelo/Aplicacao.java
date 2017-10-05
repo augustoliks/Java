@@ -3,17 +3,17 @@ package br.com.fatec.modelo;
 import br.com.fatec.engine.Agenda;
 
 public class Aplicacao {
-
+	
 	public static void main(String[] args) {
-
+		
 		int saida=0;
 		Agenda agenda = new Agenda();
 		
 		do {
 
-			Outputs.imprimiOpcoes();
+			new Outputs().imprimiOpcoes();
 			
-			switch (Inputs.pegaOpcao()) {
+			switch (new Inputs().pegaOpcao() ) {
 				case "1": {
 					agenda.cadastrarAluno();
 					break;
@@ -55,7 +55,7 @@ public class Aplicacao {
 	
 				default: {
 					System.out.println("Opcao invalida!!!");
-					Outputs.imprimiOpcoes();
+					new Outputs().imprimiOpcoes();
 					break;
 				}
 			}

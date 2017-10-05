@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Produto implements Informador, Comparable<Produto>, Serializable{
 
+	private static final long serialVersionUID = 1L;
 	private String nome;
 	private int quantidade=0;
 

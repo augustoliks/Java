@@ -1,4 +1,4 @@
-package pacote;
+package exercicio01;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class GerAplicacao {
 
 	public void cadastrarProduto() {
 
-		String nome = Inputs.pegaNome();
+		String nome = new Inputs().pegaNome();
 
 		if (GerProdutos.descobreIndex(produtos, nome) >= 0) {
 			System.out.println("Produtos ja existente");
@@ -19,7 +19,7 @@ public class GerAplicacao {
 		}
 
 		else {
-			produtos.add(new Produto(nome, Inputs.pegaDescricao(), Inputs.pegaQuantidade()));
+			produtos.add(new Produto(nome, new Inputs().pegaQuantidade()));
 			System.out.println("Produto Adicionado com Sucesso");
 		}
 
@@ -27,7 +27,7 @@ public class GerAplicacao {
 
 	public void atualizarProduto() {
 
-		String nome = Inputs.pegaNome();
+		String nome = new Inputs().pegaNome();
 
 		if (GerProdutos.descobreIndex(produtos, nome) >= 0) {
 			GerProdutos.atualizaProduto(produtos, nome);
@@ -39,9 +39,10 @@ public class GerAplicacao {
 
 	}
 
+	
 	public void removerProduto() {
 
-		String nome = Inputs.pegaNome();
+		String nome = new Inputs().pegaNome();
 
 		if (GerProdutos.descobreIndex(produtos, nome) >= 0) {
 			produtos.remove(GerProdutos.descobreIndex(produtos, nome));
@@ -55,11 +56,11 @@ public class GerAplicacao {
 
 	public void adicionarQuantidade() {
 
-		String nome = Inputs.pegaNome();
+		String nome = new Inputs().pegaNome();
 
 		if (GerProdutos.descobreIndex(produtos, nome) >= 0) {
 			int aux = produtos.get(GerProdutos.descobreIndex(produtos, nome)).getQuantidade();
-			produtos.get(GerProdutos.descobreIndex(produtos, nome)).setQuantidade(aux + Inputs.pegaQuantidade());
+			produtos.get(GerProdutos.descobreIndex(produtos, nome)).setQuantidade(aux+new Inputs().pegaQuantidade());
 		} else {
 			System.out.println("Produto Inexistente");
 		}
@@ -68,48 +69,30 @@ public class GerAplicacao {
 
 	public void reduzirQuantidade() {
 
-		String nome = Inputs.pegaNome();
+		String nome = new Inputs().pegaNome();
 
 		if (GerProdutos.descobreIndex(produtos, nome) >= 0) {
-			int auxQtdEstoque = produtos.get(GerProdutos.descobreIndex(produtos, nome)).getQuantidade();
-			int auxQtdVenda = produtos.get(GerProdutos.descobreIndex(produtos, nome)).getQtdVenda();
-			int aux = Inputs.pegaQuantidade();
-
-			if (aux > auxQtdEstoque) {
-				System.out.println("Nao é possivel vender mais do que tem no estoque!!!");
-			} 
-			else {
-				produtos.get(GerProdutos.descobreIndex(produtos, nome)).setQuantidade(auxQtdEstoque - aux);
-				produtos.get(GerProdutos.descobreIndex(produtos, nome)).setQtdVenda(auxQtdVenda + aux);
-			}
-		} 
-		else {
+			int aux = produtos.get(GerProdutos.descobreIndex(produtos, nome)).getQuantidade();
+			produtos.get(GerProdutos.descobreIndex(produtos, nome)).setQuantidade(aux-new Inputs().pegaQuantidade());
+		} else {
 			System.out.println("Produto Inexistente");
 		}
 
 	}
 
-	public void dadosProdutos() {
+	public void listarTodos() {
 		Collections.sort(produtos);
-		for (int k = 0; k < produtos.size(); k++) {
-			System.out.println(Outputs.imprimiDados(produtos, k));
-		}
-	}
-
-	public void rankingProdutos() {
-		Collections.sort(produtos);
-		System.out.println("Posicao - Quantidade de Itens Vendidos");
-		for (int k = 0; k < produtos.size(); k++) {
-			System.out.println(k + 1 + " " + Outputs.ImprimiRanking(produtos, k));
+		for (Informador produto : produtos) {
+			System.out.println(produto.informacao());
 		}
 	}
 
 	public void salvarEmDisco() throws IOException {
-		Serializacao.salvar(this.produtos, Inputs.pegaCaminho());
+		Serializacao.salvar(this.produtos, new Inputs().pegaCaminho());
 	}
 
 	public void lerDisco() throws IOException, ClassNotFoundException {
-		produtos = Serializacao.ler(Inputs.pegaCaminho());
+		produtos = Serializacao.ler(new Inputs().pegaCaminho());
 	}
 
 }

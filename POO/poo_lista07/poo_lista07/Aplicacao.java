@@ -11,7 +11,7 @@ public class Aplicacao {
 		String perfil;
 		
 		do {
-			perfil = engine.login(Inputs.pegaLogin(), Inputs.pegaSenha());
+			perfil = engine.login(new Inputs().pegaLogin(), new Inputs().pegaSenha());
 			System.out.println(perfil);
 		}while ( perfil.equals("adm") || perfil.equals("error") );
 	
@@ -22,7 +22,7 @@ public class Aplicacao {
 
 			FrontEnd.imprimiOpcoes();
 
-			switch (Inputs.pegaOpcao()) {
+			switch (new Inputs().pegaOpcao()) {
 			case "1": {
 				engine.levantamentos();
 				break;

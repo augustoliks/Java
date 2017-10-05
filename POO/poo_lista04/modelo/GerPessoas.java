@@ -2,9 +2,9 @@ package br.com.fatec.modelo;
 
 import java.util.List;
 
-public class GerPessoas {
+public class GerPessoas extends Inputs {
 
-	public static int descobreIndex(List<Pessoa> pessoas, String nome) {
+	public int descobreIndex(List<Pessoa> pessoas, String nome) {
 
 		for (int k = 0; k < pessoas.size(); k++) {
 			if (pessoas.get(k).getNome().equals(nome)) {
@@ -14,7 +14,7 @@ public class GerPessoas {
 		return -1;
 	}
 
-	public static void atualizarCadastro(List<Pessoa> pessoas, String nome) {
+	public void atualizarCadastro(List<Pessoa> pessoas, String nome) {
 
 		int index = descobreIndex(pessoas, nome);
 
@@ -26,22 +26,22 @@ public class GerPessoas {
 						+ "Digite 2: Atualizar numero de telefone do Aluno\n" + "Digite 3: Atualizar e-mail do Aluno\n"
 						+ "Digite 4: Atualizar RA\n" + "Digite 5: Confirmar e Sair\n" + "Digite a operacao desejada: ");
 
-				switch (Inputs.pegaOpcao()) {
+				switch ( pegaOpcao() ) {
 				case "1": {
 					System.out.println("Digite um novo Nome para " + ((Aluno) pessoas.get(index)).getNome());
-					((Aluno) pessoas.get(index)).setNome(Inputs.pegaNome());
+					((Aluno) pessoas.get(index)).setNome(pegaNome());
 					System.out.println("Contato modificado com sucesso!!!");
 					break;
 				}
 				case "2": {
 					System.out.println("Digite um novo Telefone para " + ((Aluno) pessoas.get(index)).getNome());
-					((Aluno) pessoas.get(index)).setTelefone(Inputs.pegaTelefone());
+					((Aluno) pessoas.get(index)).setTelefone(pegaTelefone());
 					System.out.println("Contato modificado com sucesso!!!");
 					break;
 				}
 				case "3": {
 					System.out.println("Digite o novo email para " + ((Aluno) pessoas.get(index)).getNome());
-					((Aluno) pessoas.get(index)).setTelefone(Inputs.pegaEmail());
+					((Aluno) pessoas.get(index)).setTelefone(pegaEmail());
 					System.out.println("Contato modificado com sucesso!!!");
 					break;
 				}
@@ -49,7 +49,7 @@ public class GerPessoas {
 				case "4": {
 					System.out.println(
 							"Digite Registro Academico para " + ((Aluno) pessoas.get(index)).getNumeroMatricula());
-					((Aluno) pessoas.get(index)).setTelefone(Inputs.pegaEmail());
+					((Aluno) pessoas.get(index)).setTelefone(pegaEmail());
 					System.out.println("Contato modificado com sucesso!!!");
 					break;
 				}
@@ -77,29 +77,29 @@ public class GerPessoas {
 								+ "Digite 3: Atualizar e-mail do Aluno\n" + "Digite 4: Atualizar Registro\n"
 								+ "Digite 5: Confirmar e Sair\n" + "Digite a operacao desejada: ");
 
-				switch (Inputs.pegaOpcao()) {
+				switch (pegaOpcao()) {
 					case "1": {
 						System.out.println("Digite um novo Nome para " + ((Professor) pessoas.get(index)).getNome());
-						((Professor) pessoas.get(index)).setNome(Inputs.pegaNome());
+						((Professor) pessoas.get(index)).setNome(pegaNome());
 						System.out.println("Contato modificado com sucesso!!!");
 						break;
 					}
 					case "2": {
 						System.out.println("Digite um novo Telefone para " + ((Professor) pessoas.get(index)).getNome());
-						((Professor) pessoas.get(index)).setTelefone(Inputs.pegaTelefone());
+						((Professor) pessoas.get(index)).setTelefone(pegaTelefone());
 						System.out.println("Contato modificado com sucesso!!!");
 						break;
 					}
 					case "3": {
 						System.out.println("Digite o novo email para " + ((Professor) pessoas.get(index)).getNome());
-						((Professor) pessoas.get(index)).setEmail(Inputs.pegaEmail());
+						((Professor) pessoas.get(index)).setEmail(pegaEmail());
 						System.out.println("Contato modificado com sucesso!!!");
 						break;
 					}
 	
 					case "4": {
 						System.out.println("Digite Novo Registro para " + ((Professor) pessoas.get(index)).getNome());
-						((Professor) pessoas.get(index)).setNumeroRegistro(Inputs.pegaEmail());
+						((Professor) pessoas.get(index)).setNumeroRegistro(pegaEmail());
 						System.out.println("Contato modificado com sucesso!!!");
 						break;
 					}

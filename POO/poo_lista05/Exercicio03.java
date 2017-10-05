@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class Exercicio03 {
 
+	private static Scanner scan;
+
 	public static void main(String[] args) {
 
-		Scanner scan = new Scanner(System.in);
+		scan = new Scanner(System.in);
 
 		double a = 0, b = 0, c = 0;
 		while (true) {

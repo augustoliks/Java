@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BDLogin {
+public class BDLogin extends GerFuncionario{
 
 	private List<Funcionario> funcionarios = new ArrayList<>();
 
@@ -22,17 +22,17 @@ public class BDLogin {
 			int saida = 0;
 
 			do {
-				System.out.print("VOCÊ É UM ADMINISTRADOR\nDigite 1: Adicionar Funcionario\n"
+				System.out.print("VOCE E UM ADMINISTRADOR\nDigite 1: Adicionar Funcionario\n"
 						+ "Digite 2: Remover  Funcionario\n" + "Digite 3: Confirmar e Sair\n");
 
-				switch (Inputs.pegaOpcao()) {
+				switch (new Inputs().pegaOpcao()) {
 				case "1": {
-					funcionarios.add(new Funcionario(Inputs.pegaNome(), Inputs.pegaSenha()));
+					funcionarios.add(new Funcionario(new Inputs().pegaNome(), new Inputs().pegaSenha()));
 					System.out.println("Funcionario CADASTRADO com sucesso!!!");
 					break;
 				}
 				case "2": {
-					funcionarios.remove(GerFuncionario.descobreIndex(funcionarios, Inputs.pegaNome()));
+					funcionarios.remove(descobreIndex(funcionarios, new Inputs().pegaNome()));
 					System.out.println("Funcionario REMOVIDO com sucesso!!!");
 					break;
 				}
