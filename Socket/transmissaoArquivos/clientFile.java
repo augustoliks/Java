@@ -19,7 +19,7 @@ public class Principal {
 		OutputStreamWriter osw = new OutputStreamWriter(out);
 
 		BufferedWriter writer = new BufferedWriter(osw);
-//dfefe
+
 		writer.write(f.getName() + "\n");
 		writer.flush();
 
