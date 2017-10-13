@@ -10,7 +10,7 @@ import java.net.Socket;
 public class Principal {
 	public static void main(String[] args) throws Exception {
 
-		File f = new File("G:\\clienteSocket.txt");
+		File f = new File("G:\\clienteSocket.txt");		//Arquivo
 
 		FileInputStream in = new FileInputStream(f);
 		Socket socket = new Socket("172.16.11.34", 567);
